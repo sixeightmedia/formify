@@ -43,6 +43,58 @@
 			</div>
 				
 			<hr />
+
+      <h3><?php echo t('Filter Records'); ?></h3>
+      <script type="text/javascript">
+        var filterIndex = 0;
+
+        var strFilterOptionHtml = "";
+
+        <?php foreach($f->getFields() as $ff) { ?>
+            strFilterOptionHtml += "<option value=\"<?php  echo $ff->ffID; ?>\"><?php  echo $ff->label; ?></option>";
+        <?php } ?>
+
+        function addFilter() {
+            var strFilterHtml;
+
+            strFilterHtml = "<div class='row' style=\"margin-top:4px\" id=\"lFilter" + filterIndex + "\">";
+            strFilterHtml += "<div class=\"col-md-3\">";
+            strFilterHtml += "<select class=\"form-control\" name=\"fieldValueFilter" + filterIndex + "\" id=\"fieldValueFilter" + filterIndex + "\">";
+            strFilterHtml += "<option value=\"\"></option>";
+            strFilterHtml += strFilterOptionHtml;
+            strFilterHtml += "</select>";
+            strFilterHtml += "</div>";
+            strFilterHtml += "<div class=\"col-md-1\"><div style=\"margin-top:8px\"><b>matches</b></div></div>";
+            strFilterHtml += "<div class=\"col-md-6\">";
+            strFilterHtml += "<input type=\"text\" class=\"form-control\" value=\"\" id=\"fieldValueFilterValue\"" + filterIndex + "\" name=\"fieldValueFilterValue" + filterIndex + "\" />";
+            strFilterHtml += "</div>";
+
+            strFilterHtml += "<div class=\"col-md-2\">";
+            strFilterHtml += "<a onclick=\"removeFilter(this);return(false)\" data-item-remove=\"" + filterIndex + "\" class=\"removeFilter btn btn-danger\">remove</a>";
+            strFilterHtml += "</div>";
+
+            strFilterHtml += "</div>";
+
+            $('#dFilters').append(strFilterHtml);
+            filterIndex++;
+        }
+
+        function removeFilter(t) {
+            var t = $(t);
+            var filterId = t.attr('data-item-remove');
+            var strFilterKey = 'lFilter' + filterId;
+            jQuery('#' + strFilterKey).remove();
+        }
+
+        $(document).ready(function() {
+           $('#btnAddFilter').on('click',addFilter);
+        });
+      </script>
+      
+      <a class="btn btn-primary" id="btnAddFilter">Add Filter</a>
+      <br/><br/>
+      
+      <div id="dFilters"></div>
 			
 			<h3><?php  echo t('Which fields?'); ?></h3>
 			

@@ -13,10 +13,26 @@ use Log;
 class Export extends Controller {
 	
 	protected function canAccess() {
-	    $formifyPage = \Page::getByPath('/dashboard/formify');
-    	$formifyPermissions = new \Permissions($formifyPage);
-    	return $formifyPermissions->canRead();
+    $formifyPage = \Page::getByPath('/dashboard/formify');
+  	$formifyPermissions = new \Permissions($formifyPage);
+  	return $formifyPermissions->canRead();
+  }
+    
+  public function createFilter(&$oFormify) {
+    // fieldValueFilter
+    // fieldValueFilterValue
+    foreach($_POST as $k => $v)
+    {
+        if (strstr($k,"fieldValueFilter") !== false && strstr($k,"fieldValueFilterValue") === false)
+        {
+            $fieldId = $v;
+            $fieldIndexId = str_replace("fieldValueFilter","",$k);
+            $fieldValue = $_POST["fieldValueFilterValue" . $fieldIndexId];
+
+            $oFormify->addFilter($fieldId,$fieldValue,true);
+        }
     }
+  }
 	
 	public function run() {
 		
@@ -51,6 +67,7 @@ class Export extends Controller {
 			$rs->setDateRange($start->getTimestamp(),$end->getTimestamp());
 		}
 		
+		$this->createFilter($rs);
 		$records = $rs->getRecords();
 		
 		if($debug) {
