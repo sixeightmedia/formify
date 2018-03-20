@@ -30,7 +30,7 @@ Finish attributes
 
 ## CHANGE LOG ##
 
-3.1
+3.0.1.1
 
 3.0
 * If you are upgrading from a previous version be sure to read this first: http://68m.co/journal/converting-formify-templates-liquid-templates
