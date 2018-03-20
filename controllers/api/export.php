@@ -21,8 +21,7 @@ class Export extends Controller {
   public function createFilter(&$oFormify) {
     // fieldValueFilter
     // fieldValueFilterValue
-    foreach($_POST as $k => $v)
-    {
+    foreach($_POST as $k => $v) {
         if (strstr($k,"fieldValueFilter") !== false && strstr($k,"fieldValueFilterValue") === false)
         {
             $fieldId = $v;

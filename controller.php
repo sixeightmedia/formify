@@ -23,7 +23,7 @@ class Controller extends Package {
 
 	protected $pkgHandle = 'formify';
 	protected $appVersionRequired = '5.7.3.1';
-	protected $pkgVersion = '3.0';
+	protected $pkgVersion = '3.1';
 
 	public function getPackageDescription() {
 		return t('Super-charge your forms and your website.');
