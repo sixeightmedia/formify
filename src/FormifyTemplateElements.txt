@@ -1,0 +1,21 @@
+See https://shopify.github.io/liquid/ for full Liquid template documentation.
+
+Template Placeholders
+{{handle}}
+{{handle.label}}
+{{handle.value}}
+{{handle.url}}
+
+{{user}}
+{{user.username}}
+{{user.email}}
+{{user.attribute_handle}}
+{{user.id}}
+{{timestamp}}
+
+{{ip}}
+{{id}}
+{{detailurl}}
+{{amountcharged}}
+{{amountpaid}}
+{{status}}

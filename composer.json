@@ -1,0 +1,7 @@
+{
+	"require": {
+		"mailchimp/mailchimp":"2.0.6",
+		"stripe/stripe-php": "^4.1",
+		"liquid/liquid": "^1.3"
+	}
+}

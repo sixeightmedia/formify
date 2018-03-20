@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<fieldtype name="Email" iconclass="fa-at" hasoptions="false">
+  
+  <properties>
+		<property handle="userAction" />
+	</properties>
+  
+</fieldtype>

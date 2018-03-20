@@ -1,0 +1,40 @@
+<table cellpadding="0" cellspacing="0" border="0" style="width:100%;background-color:#f3f3f3;">
+  <tr>
+    <td>
+      <table cellpadding="0" cellspacing="0" border="0" style="max-width:600px;margin:40px auto;background-color:#fff;border-radius:4px;">
+        <tr>
+          <td>
+            <table cellpadding="0" cellspacing="0" border="0" style="max-width:500px;margin:50px auto;padding:0 50px;">
+            	<tr>
+            		<td style="margin:0.25em;padding:1em;border-bottom:solid 1px #ccc;"><strong>Field</strong></td>
+            		<td style="margin:0.25em;padding:1em;border-bottom:solid 1px #ccc;"><strong>Value</strong></td>
+            	</tr>
+            	{% for a in emailableanswers %}
+            	<tr>
+            		<td style="margin:0.25em;padding:1em;border-bottom:solid 1px #eee;">{{ a.label }}&nbsp;</td>
+            		<td style="margin:0.25em;padding:1em;border-bottom:solid 1px #eee;">{{ a }}&nbsp;</td>
+            	</tr>
+            	{% endfor %}
+            	<tr>
+            		<td style="margin:0.25em;padding:1em;border-bottom:solid 1px #eee;">IP Address </td>
+            		<td style="margin:0.25em;padding:1em;border-bottom:solid 1px #eee;">{{ ip }} </td>
+            	</tr>
+            	<tr>
+            		<td style="margin:0.25em;padding:1em;border-bottom:solid 1px #eee;">Record ID </td>
+            		<td style="margin:0.25em;padding:1em;border-bottom:solid 1px #eee;">{{ id }} </td>
+            	</tr>
+            	<tr>
+            		<td style="margin:0.25em;padding:1em;border-bottom:solid 1px #eee;">Timestamp </td>
+            		<td style="margin:0.25em;padding:1em;border-bottom:solid 1px #eee;">{{ timestamp | date:"%B %e, %Y, %I:%M %P" }} </td>
+            	</tr>
+            	<tr>
+              	<td style="margin:0.25em;padding:1em;" colspan="2">
+                	<span style="font-size:0.75em;color:#ccc">Source: {{ source }}</span>
+              	</td>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
